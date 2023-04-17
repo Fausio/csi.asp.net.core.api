@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["csi.asp.net.core.api.csproj", "."]
-RUN dotnet restore "./csi.asp.net.core.api.csproj"
+COPY ["csi.asp.net.core.api/csi.asp.net.core.api.csproj", "csi.asp.net.core.api/"]
+RUN dotnet restore "csi.asp.net.core.api/csi.asp.net.core.api.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/csi.asp.net.core.api"
 RUN dotnet build "csi.asp.net.core.api.csproj" -c Release -o /app/build
 
 FROM build AS publish

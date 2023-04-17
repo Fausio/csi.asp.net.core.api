@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\csi.asp.net.core.api.props" />
+</Project>

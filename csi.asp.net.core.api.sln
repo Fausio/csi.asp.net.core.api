@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csi.asp.net.core.model", "c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csi.asp.net.core.data", "csi.asp.net.core.data\csi.asp.net.core.data.csproj", "{8CC70125-46EB-4EE1-97F2-BEC02A5C52CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csi.asp.net.core.api", "csi.asp.net.core.api\csi.asp.net.core.api.csproj", "{C969C2D8-DF42-4319-AF89-B408676C0951}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8CC70125-46EB-4EE1-97F2-BEC02A5C52CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC70125-46EB-4EE1-97F2-BEC02A5C52CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CC70125-46EB-4EE1-97F2-BEC02A5C52CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C969C2D8-DF42-4319-AF89-B408676C0951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C969C2D8-DF42-4319-AF89-B408676C0951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C969C2D8-DF42-4319-AF89-B408676C0951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C969C2D8-DF42-4319-AF89-B408676C0951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

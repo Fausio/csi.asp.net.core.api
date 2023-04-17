@@ -1,0 +1,12 @@
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\bin\Debug\net6.0\csi.asp.net.core.model.deps.json
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\bin\Debug\net6.0\csi.asp.net.core.model.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\bin\Debug\net6.0\csi.asp.net.core.model.pdb
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\csi.asp.net.core.model.csproj.AssemblyReference.cache
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\csi.asp.net.core.model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\csi.asp.net.core.model.csproj.CoreCompileInputs.cache
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\csi.asp.net.core.model.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\refint\csi.asp.net.core.model.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\csi.asp.net.core.model.pdb
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\ref\csi.asp.net.core.model.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\bin\Debug\net6.0\csi.asp.net.core.model.runtimeconfig.json
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.model\obj\Debug\net6.0\csi.asp.net.core.model.genruntimeconfig.cache

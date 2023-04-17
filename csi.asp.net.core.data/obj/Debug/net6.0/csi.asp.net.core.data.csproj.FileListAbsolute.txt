@@ -1,0 +1,15 @@
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\bin\Debug\net6.0\csi.asp.net.core.data.deps.json
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\bin\Debug\net6.0\csi.asp.net.core.data.runtimeconfig.json
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\bin\Debug\net6.0\csi.asp.net.core.data.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\bin\Debug\net6.0\csi.asp.net.core.data.pdb
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\bin\Debug\net6.0\csi.asp.net.core.model.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\bin\Debug\net6.0\csi.asp.net.core.model.pdb
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\csi.asp.net.core.data.csproj.AssemblyReference.cache
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\csi.asp.net.core.data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\csi.asp.net.core.data.csproj.CoreCompileInputs.cache
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\csi.asp.net.core.data.csproj.CopyComplete
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\csi.asp.net.core.data.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\refint\csi.asp.net.core.data.dll
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\csi.asp.net.core.data.pdb
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\csi.asp.net.core.data.genruntimeconfig.cache
+C:\Users\FausioMatsinhe\source\repos\csi.asp.net.core.api\csi.asp.net.core.data\obj\Debug\net6.0\ref\csi.asp.net.core.data.dll

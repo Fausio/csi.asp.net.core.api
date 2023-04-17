@@ -17,10 +17,10 @@ namespace csi.asp.net.core.data.App.Context
         public DbSet<HouseHold>  houseHolds { get; set; }
 
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(@"data source=localhost; initial catalog=csi_demo;persist security info=True;user id=sa");
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"data source=localhost; initial catalog=csi_demo;persist security info=True;user id=sa");
+        }
 
     }
 }

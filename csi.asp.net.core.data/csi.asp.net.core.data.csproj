@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\csi.asp.net.core.model\csi.asp.net.core.model.csproj" />
+  </ItemGroup>
+
 </Project>

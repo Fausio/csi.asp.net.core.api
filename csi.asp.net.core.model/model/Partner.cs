@@ -20,6 +20,7 @@ namespace csi.asp.net.core.model.model
 
         #region Navagarions
         public CollaboratorRole? CollaboratorRole { get; set; }
+        [ForeignKey("CollaboratorRole")]
         public int CollaboratorRoleId { get; set; }
 
         public virtual Partner Superior { get; set; }

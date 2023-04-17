@@ -14,7 +14,9 @@ namespace csi.asp.net.core.model.model
     public class CollaboratorRole : Common
     {
 
-        // -- 1  supervisor
+     // -- 1  supervisor
+     // -- 2  chefe
+     // -- 3  normal
 
         [Column(TypeName = "varchar(200)")]
         [Display(Name = "Descrição")]

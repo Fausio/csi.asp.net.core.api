@@ -1,6 +1,8 @@
+using csi.asp.net.core.data.Seed;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
+ 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+await SeedData.Run();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
@@ -30,3 +34,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+

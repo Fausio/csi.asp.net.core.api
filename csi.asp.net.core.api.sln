@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csi.asp.net.core.api", "csi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MODEL", "..\MODEL\MODEL.csproj", "{BFE27CB2-5876-413F-A18E-AED1C68C79B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATA", "..\DATA\DATA.csproj", "{BE8174B5-8676-45C1-B3FB-382B6C51EE62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BFE27CB2-5876-413F-A18E-AED1C68C79B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFE27CB2-5876-413F-A18E-AED1C68C79B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFE27CB2-5876-413F-A18E-AED1C68C79B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8174B5-8676-45C1-B3FB-382B6C51EE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8174B5-8676-45C1-B3FB-382B6C51EE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8174B5-8676-45C1-B3FB-382B6C51EE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8174B5-8676-45C1-B3FB-382B6C51EE62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

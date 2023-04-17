@@ -24,7 +24,7 @@ namespace csi.asp.net.core.model.model
 
         public virtual Partner Superior { get; set; }
         [ForeignKey("Superior")]
-        public int PartnerId { get; set; }
+        public int? PartnerId { get; set; }
 
 
         public virtual  Site Site { get; set; }

@@ -48,7 +48,7 @@ namespace csi.asp.net.core.data.Migrations
                     b.ToTable("CollaboratorRole");
                 });
 
-            modelBuilder.Entity("csi.asp.net.core.model.model.HouseHold", b =>
+            modelBuilder.Entity("csi.asp.net.core.model.model.Household", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,7 +80,7 @@ namespace csi.asp.net.core.data.Migrations
 
                     b.HasIndex("PartnerId");
 
-                    b.ToTable("HouseHold");
+                    b.ToTable("Household");
                 });
 
             modelBuilder.Entity("csi.asp.net.core.model.model.Partner", b =>
@@ -104,7 +104,7 @@ namespace csi.asp.net.core.data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int>("PartnerId")
+                    b.Property<int?>("PartnerId")
                         .HasColumnType("int");
 
                     b.Property<int>("SiteId")
@@ -150,7 +150,7 @@ namespace csi.asp.net.core.data.Migrations
                     b.ToTable("Site");
                 });
 
-            modelBuilder.Entity("csi.asp.net.core.model.model.HouseHold", b =>
+            modelBuilder.Entity("csi.asp.net.core.model.model.Household", b =>
                 {
                     b.HasOne("csi.asp.net.core.model.model.Partner", "Partner")
                         .WithMany()
@@ -171,9 +171,7 @@ namespace csi.asp.net.core.data.Migrations
 
                     b.HasOne("csi.asp.net.core.model.model.Partner", "Superior")
                         .WithMany()
-                        .HasForeignKey("PartnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PartnerId");
 
                     b.HasOne("csi.asp.net.core.model.model.Site", "Site")
                         .WithMany()

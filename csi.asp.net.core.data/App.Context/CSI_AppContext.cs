@@ -14,12 +14,12 @@ namespace csi.asp.net.core.data.App.Context
         public DbSet<Site> sites { get; set; }
         public DbSet<CollaboratorRole>  collaboratorRoles { get; set; }
         public DbSet<Partner>  partners { get; set; }
-        public DbSet<HouseHold>  houseHolds { get; set; }
+        public DbSet<Household>  houseHolds { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"data source=localhost; initial catalog=csi_demo;persist security info=True;user id=sa");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Initial Catalog=csi_demo;Persist Security Info=False;User=sa;Password=0l0ga;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
     }

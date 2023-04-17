@@ -10,8 +10,8 @@ using System.Xml.Linq;
 
 namespace csi.asp.net.core.model.model
 {
-    [Table("HouseHold")]
-    public class HouseHold : Common
+    [Table("Household")]
+    public class Household : Common
     {
         [Column(TypeName = "varchar(50)")]
         [Display(Name = "Nome do agregado")]

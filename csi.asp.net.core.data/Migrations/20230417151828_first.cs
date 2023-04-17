@@ -51,7 +51,7 @@ namespace csi.asp.net.core.data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "varchar(50)", nullable: false),
                     CollaboratorRoleId = table.Column<int>(type: "int", nullable: false),
-                    PartnerId = table.Column<int>(type: "int", nullable: false),
+                    PartnerId = table.Column<int>(type: "int", nullable: true),
                     SiteId = table.Column<int>(type: "int", nullable: false),
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -70,8 +70,7 @@ namespace csi.asp.net.core.data.Migrations
                         name: "FK_Partner_Partner_PartnerId",
                         column: x => x.PartnerId,
                         principalTable: "Partner",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Partner_Site_SiteId",
                         column: x => x.SiteId,
@@ -81,7 +80,7 @@ namespace csi.asp.net.core.data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "HouseHold",
+                name: "Household",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -95,9 +94,9 @@ namespace csi.asp.net.core.data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HouseHold", x => x.Id);
+                    table.PrimaryKey("PK_Household", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HouseHold_Partner_PartnerId",
+                        name: "FK_Household_Partner_PartnerId",
                         column: x => x.PartnerId,
                         principalTable: "Partner",
                         principalColumn: "Id",
@@ -105,8 +104,8 @@ namespace csi.asp.net.core.data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_HouseHold_PartnerId",
-                table: "HouseHold",
+                name: "IX_Household_PartnerId",
+                table: "Household",
                 column: "PartnerId");
 
             migrationBuilder.CreateIndex(
@@ -129,7 +128,7 @@ namespace csi.asp.net.core.data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "HouseHold");
+                name: "Household");
 
             migrationBuilder.DropTable(
                 name: "Partner");

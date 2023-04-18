@@ -38,3 +38,6 @@
 /.vs/csi.asp.net.core.api/DesignTimeBuild/.dtbcache.v2
 /csi.asp.net.core.service/obj/Debug/net6.0
 /csi.asp.net.core.service/obj
+/csi.asp.net.core.api/obj/project.nuget.cache
+/csi.asp.net.core.api/obj/project.assets.json
+/csi.asp.net.core.api/obj/csi.asp.net.core.api.csproj.nuget.dgspec.json

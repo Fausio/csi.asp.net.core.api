@@ -1,4 +1,6 @@
-﻿using csi.asp.net.core.model.model;
+﻿  
+using csi.asp.net.core.model.helper;
+using csi.asp.net.core.model.model;
 using csi.asp.net.core.service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +15,7 @@ namespace csi.asp.net.core.api.Controllers
     [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class HouseholdController : ControllerBase
     {
-        private readonly IHouseholdInterface _householdInterface;
+        private readonly IHouseholdInterface _householdInterface; 
 
         public HouseholdController(IHouseholdInterface householdInterface)
         {
@@ -34,7 +36,7 @@ namespace csi.asp.net.core.api.Controllers
                 throw;
             }
         }
-        
+
         [HttpPut]
         public async Task<Household> Update(Household model)
         {
@@ -50,11 +52,22 @@ namespace csi.asp.net.core.api.Controllers
             }
         }
         [HttpGet]
-        public async Task<List<Household>> Read()
+        public async Task<IActionResult> Read([FromQuery] PaginationFilter filter)
         {
             try
             {
-                return await _householdInterface.Read();
+                var data = await _householdInterface.Read();
+
+                var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+                var pagedData = data.Skip((validFilter.PageNumber - 1) * validFilter.PageSize)
+                                          .Take(validFilter.PageSize)
+                                          .ToList();
+
+                var totalRecords = data.Count();
+                //  return await _householdInterface.Read();
+
+                return Ok(new PagedResponse<List<Household>>(pagedData, validFilter.PageNumber, validFilter.PageSize, totalRecords));
+
 
             }
             catch (Exception e)

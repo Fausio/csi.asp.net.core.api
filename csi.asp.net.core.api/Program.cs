@@ -18,10 +18,24 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("csi.angular.front",
+        builder =>
+        { 
+            builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+        });
+});
+
+
+builder.Services.AddHttpContextAccessor(); 
 #region IOC
 builder.Services.AddSingleton<ISiteInterface, SiteService>();
 builder.Services.AddSingleton<IPartnerInterface, PartnerService>();
 builder.Services.AddSingleton<IHouseholdInterface, HouseholdService>();
+ 
+
+
 #endregion
 
 var app = builder.Build();
@@ -33,12 +47,24 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
+
 await SeedData.Run();
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+#region app cors  
+app.UseCors("csi.angular.front");
+#endregion
+
+
 app.UseAuthorization();
+
+ 
+
 
 app.MapControllers();
 

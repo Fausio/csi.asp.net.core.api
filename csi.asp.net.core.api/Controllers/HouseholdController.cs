@@ -1,10 +1,13 @@
-﻿  
+﻿
+using csi.asp.net.core.data.App.Context;
 using csi.asp.net.core.model.helper;
+using csi.asp.net.core.model.helper.paginatin;
 using csi.asp.net.core.model.model;
 using csi.asp.net.core.service.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
+using Newtonsoft.Json; 
 
 namespace csi.asp.net.core.api.Controllers
 {
@@ -15,11 +18,13 @@ namespace csi.asp.net.core.api.Controllers
     [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class HouseholdController : ControllerBase
     {
-        private readonly IHouseholdInterface _householdInterface; 
+        private readonly IHouseholdInterface _householdInterface;
+        private CSI_AppContext db;
 
         public HouseholdController(IHouseholdInterface householdInterface)
         {
             _householdInterface = householdInterface;
+            this.db = new CSI_AppContext();
         }
 
         [HttpPost]
@@ -51,24 +56,30 @@ namespace csi.asp.net.core.api.Controllers
                 throw;
             }
         }
+
         [HttpGet]
-        public async Task<IActionResult> Read([FromQuery] PaginationFilter filter)
+
+        public async Task<IActionResult> Read(int PageNumber = 1)
         {
             try
             {
-                var data = await _householdInterface.Read();
+                //var data = await _householdInterface.Read();
 
-                var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
-                var pagedData = data.Skip((validFilter.PageNumber - 1) * validFilter.PageSize)
-                                          .Take(validFilter.PageSize)
-                                          .ToList();
+                //var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+                //var pagedData = data.Skip((validFilter.PageNumber - 1) * validFilter.PageSize)
+                //                          .Take(validFilter.PageSize)
+                //                          .ToList();
 
-                var totalRecords = data.Count();
-                //  return await _householdInterface.Read();
+                //var totalRecords = data.Count();
+                ////  return await _householdInterface.Read();
 
-                return Ok(new PagedResponse<List<Household>>(pagedData, validFilter.PageNumber, validFilter.PageSize, totalRecords));
+                ////  return Ok(new PagedResponse<List<Household>>(pagedData, validFilter.PageNumber, validFilter.PageSize,));
 
-              
+
+                var data = Pagination<Household>.Create(db.houseHolds.AsQueryable(), PageNumber, 8);
+                var s = data.NextPage;
+
+                return Ok(data);
             }
             catch (Exception e)
             {
@@ -78,7 +89,7 @@ namespace csi.asp.net.core.api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Household> Read(int id)
+        public async Task<Household> ReadById(int id)
         {
             try
             {
@@ -91,18 +102,18 @@ namespace csi.asp.net.core.api.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        public async Task ReadById(int id)
-        {
-            try
-            {
-                await _householdInterface.Delete(id);
+        //[HttpDelete("{id}")]
+        //public async Task ReadById(int id)
+        //{
+        //    try
+        //    {
+        //        await _householdInterface.Delete(id);
 
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw;
+        //    }
+        //}
     }
 }

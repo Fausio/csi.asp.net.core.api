@@ -24,3 +24,4 @@ namespace csi.asp.net.core.model.helper.paginatin
             }
         }
     }
+}

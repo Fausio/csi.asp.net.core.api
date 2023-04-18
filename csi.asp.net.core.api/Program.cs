@@ -1,8 +1,10 @@
 using csi.asp.net.core.data.Seed;
+using csi.asp.net.core.service.Interface;
+using csi.asp.net.core.service.service;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
- 
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+#region IOC
+builder.Services.AddSingleton<IHouseholdInterface, HouseholdService>();
+#endregion
 
 var app = builder.Build();
 

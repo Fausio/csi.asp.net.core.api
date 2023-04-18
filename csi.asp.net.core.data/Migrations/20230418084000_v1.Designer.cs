@@ -12,8 +12,8 @@ using csi.asp.net.core.data.App.Context;
 namespace csi.asp.net.core.data.Migrations
 {
     [DbContext(typeof(CSI_AppContext))]
-    [Migration("20230417151828_first")]
-    partial class first
+    [Migration("20230418084000_v1")]
+    partial class v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

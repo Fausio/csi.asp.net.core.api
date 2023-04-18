@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\csi.asp.net.core.data\csi.asp.net.core.data.csproj" />
     <ProjectReference Include="..\csi.asp.net.core.model\csi.asp.net.core.model.csproj" />
+    <ProjectReference Include="..\csi.asp.net.core.service\csi.asp.net.core.service.csproj" />
   </ItemGroup>
 
 </Project>

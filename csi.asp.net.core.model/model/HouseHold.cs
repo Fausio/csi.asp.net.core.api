@@ -22,7 +22,7 @@ namespace csi.asp.net.core.model.model
         public string Address { get; set; }
 
         #region navegations
-        public virtual Partner Partner { get; set; }
+        public virtual Partner? Partner { get; set; }
 
         [ForeignKey("Partner")]
         public int PartnerId { get; set; }

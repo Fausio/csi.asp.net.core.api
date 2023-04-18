@@ -1,4 +1,5 @@
 ﻿using csi.asp.net.core.data.App.Context;
+using csi.asp.net.core.model.helper.paginatin;
 using csi.asp.net.core.model.model;
 using csi.asp.net.core.service.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -58,6 +59,8 @@ namespace csi.asp.net.core.service.service
                 throw;
             }
         }
+
+       
 
         public async Task<Household> Read(int id)
         {
@@ -131,7 +134,7 @@ namespace csi.asp.net.core.service.service
 
         //        var totalRecords = db.houseHolds.Count();
         //        var totalPages = Math.Ceiling((double)totalRecords / pageSize);
-                
+
         //        var skip = (page - 1) * pageSize; 
 
         //        return db.houseHolds.Skip((page - 1) * pageSize).Take(pageSize);

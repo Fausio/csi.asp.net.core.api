@@ -66,9 +66,9 @@ namespace csi.asp.net.core.api.Controllers
                 var totalRecords = data.Count();
                 //  return await _householdInterface.Read();
 
-                return Ok(new PagedResponse<List<Household>>(pagedData, validFilter.PageNumber, validFilter.PageSize, totalRecords));
+                //  return Ok(new PagedResponse<List<Household>>(pagedData, validFilter.PageNumber, validFilter.PageSize,));
 
-
+                return Ok(_householdInterface.Pagenation(new model.helper.paginatin.OwnerParameters()));
             }
             catch (Exception e)
             {

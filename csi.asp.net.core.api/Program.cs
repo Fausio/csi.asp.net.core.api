@@ -19,6 +19,8 @@ builder.Services.AddSwaggerGen();
 
 
 #region IOC
+builder.Services.AddSingleton<ISiteInterface, SiteService>();
+builder.Services.AddSingleton<IPartnerInterface, PartnerService>();
 builder.Services.AddSingleton<IHouseholdInterface, HouseholdService>();
 #endregion
 

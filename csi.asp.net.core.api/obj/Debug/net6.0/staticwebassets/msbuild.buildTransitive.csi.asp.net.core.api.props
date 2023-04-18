@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\csi.asp.net.core.api.props" />
-</Project>

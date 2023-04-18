@@ -1,5 +1,7 @@
-﻿using csi.asp.net.core.model.model;
+﻿using csi.asp.net.core.data.App.Context;
+using csi.asp.net.core.model.model;
 using csi.asp.net.core.service.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,31 +10,111 @@ using System.Threading.Tasks;
 
 namespace csi.asp.net.core.service.service
 {
-    public class PartnerService : IPartnerInterface
+    public class PartnerService :IPartnerInterface
     {
-        public Task<Partner> Create(Partner entity)
+        public async Task<Partner> Create(Partner entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var db = new CSI_AppContext();
+                if (entity.Id == 0)
+                {
+                    await db.partners.AddAsync(entity);
+                    await db.SaveChangesAsync();
+                    return entity;
+                }
+                else
+                {
+                    throw new Exception("Ativista ja existe na base de dados");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var db = new CSI_AppContext();
+
+                var data = await Read(id);
+
+                if (data is not null)
+                {
+                    db.partners.Remove(data);
+                    await db.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new Exception("Ativista não existe na base de dados");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-        public Task<Partner> Read(int id)
+        public async Task<Partner> Read(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var db = new CSI_AppContext();
+
+                var data = await db.partners.FirstOrDefaultAsync(h => h.Id == id);
+                if (data is not null)
+                {
+                    return data;
+                }
+                else
+                {
+                    throw new Exception("Ativista não existe na base de dados");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-        public Task<List<Partner>> Read()
+        public async Task<List<Partner>> Read()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var db = new CSI_AppContext();
+                return await db.partners.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-        public Task<Partner> Update(Partner entity)
+        public async Task<Partner> Update(Partner entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var db = new CSI_AppContext();
+
+                if (entity.Id >= 0)
+                {
+                    db.partners.Update(entity);
+                    await db.SaveChangesAsync();
+                    return entity;
+                }
+                else
+                {
+                    throw new Exception("Ativista não existe na base de dados");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

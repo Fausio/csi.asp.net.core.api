@@ -111,3 +111,7 @@
 /csi.asp.net.core.data/obj/Debug/net6.0/csi.asp.net.core.data.assets.cache
 /csi.asp.net.core.data/bin/Debug/net6.0/csi.asp.net.core.data.runtimeconfig.json
 /csi.asp.net.core.data/bin/Debug/net6.0/csi.asp.net.core.data.deps.json
+/csi.asp.net.core.data/obj/project.assets.json
+/csi.asp.net.core.data/obj/csi.asp.net.core.data.csproj.nuget.dgspec.json
+/csi.asp.net.core.model/obj/project.assets.json
+/csi.asp.net.core.model/obj/csi.asp.net.core.model.csproj.nuget.dgspec.json

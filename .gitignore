@@ -36,3 +36,5 @@
 /csi.asp.net.core.api/obj/Debug/net6.0/csi.asp.net.core.api.dll
 /csi.asp.net.core.api/obj/Debug/net6.0/csi.asp.net.core.api.csproj.AssemblyReference.cache
 /.vs/csi.asp.net.core.api/DesignTimeBuild/.dtbcache.v2
+/csi.asp.net.core.service/obj/Debug/net6.0
+/csi.asp.net.core.service/obj

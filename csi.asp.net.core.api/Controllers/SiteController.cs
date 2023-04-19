@@ -9,12 +9,12 @@ namespace csi.asp.net.core.api.Controllers
     //[Authorize]
     [ApiController]
     [Route("[controller]")]
-    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")] 
-    public class SiteController
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    public class SiteController : ControllerBase
     {
-        private readonly ISiteInterface  _siteInterface;
+        private readonly ISiteInterface _siteInterface;
 
-        public SiteController(ISiteInterface  siteInterface)
+        public SiteController(ISiteInterface siteInterface)
         {
             _siteInterface = siteInterface;
         }
@@ -49,12 +49,11 @@ namespace csi.asp.net.core.api.Controllers
             }
         }
         [HttpGet]
-        public async Task<List<Site>> Read()
+        public async Task<IActionResult> Read([FromQuery] int PageNumber = 1)
         {
             try
             {
-                return  await _siteInterface.Read();
-
+                return Ok(_siteInterface.Pagination(PageNumber));
             }
             catch (Exception e)
             {
@@ -64,7 +63,7 @@ namespace csi.asp.net.core.api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Site> Read(int id)
+        public async Task<Site> ReadById(int id)
         {
             try
             {
@@ -78,7 +77,7 @@ namespace csi.asp.net.core.api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task ReadById(int id)
+        public async Task Delete(int id)
         {
             try
             {

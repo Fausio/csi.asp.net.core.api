@@ -11,7 +11,7 @@ namespace csi.asp.net.core.api.Controllers
     [ApiController]
     [Route("[controller]")]
     [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
-    public class PartnerController
+    public class PartnerController : ControllerBase
     {
         private readonly IPartnerInterface _partnerInterface  ;
 
@@ -51,11 +51,11 @@ namespace csi.asp.net.core.api.Controllers
             }
         }
         [HttpGet]
-        public async Task<List<Partner>> Read()
+        public async Task<IActionResult> Read([FromQuery] int PageNumber = 1)
         {
             try
-            {
-                return await _partnerInterface.Read();
+            { 
+                return Ok(_partnerInterface.Pagination(PageNumber));
 
             }
             catch (Exception e)
@@ -66,7 +66,7 @@ namespace csi.asp.net.core.api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Partner> Read(int id)
+        public async Task<Partner> ReadById(int id)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace csi.asp.net.core.api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task ReadById(int id)
+        public async Task Delete(int id)
         {
             try
             {

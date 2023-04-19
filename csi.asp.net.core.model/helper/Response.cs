@@ -8,12 +8,12 @@ namespace csi.asp.net.core.model.helper
 {
     public class Response<T>
     {
-        public T Data { get; set; }
+        public List<T>  Data { get; set; }
         public bool Succeeded { get; set; }
         public string[]? Errors { get; set; }
         public string Message { get; set; }
 
-        public Response(T data)
+        public Response(List<T> data)
         {
             Succeeded = true;
             Message = string.Empty;

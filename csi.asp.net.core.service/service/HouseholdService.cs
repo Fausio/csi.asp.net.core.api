@@ -60,7 +60,7 @@ namespace csi.asp.net.core.service.service
             }
         }
 
-       
+
 
         public async Task<Household> Read(int id)
         {
@@ -84,12 +84,14 @@ namespace csi.asp.net.core.service.service
             }
         }
 
-        public async Task<List<Household>> Read()
+        public PaginationResponse<Household> Pagination(int PageNumber = 1)
         {
             try
-            {
+            { 
                 using var db = new CSI_AppContext();
-                return await db.houseHolds.ToListAsync();
+                var Pagination = Pagination<Household>.Create(db.houseHolds.AsQueryable(), PageNumber, 10);
+                var result = new PaginationResponse<Household>(Pagination);  
+                return result;
             }
             catch (Exception ex)
             {
@@ -119,41 +121,6 @@ namespace csi.asp.net.core.service.service
                 throw;
             }
         }
-
-
-        //used by LINQ to SQL
-        //public static IQueryable<Household> Page<TSource>(int page = 1, int pageSize = 10)
-        //{
-        //    try
-        //    {
-        //        using var db = new CSI_AppContext();
-
-        //        page = (page <= 0) ? 1 : page;
-        //        pageSize =(pageSize <= 0) ? 10 : pageSize;
-
-
-        //        var totalRecords = db.houseHolds.Count();
-        //        var totalPages = Math.Ceiling((double)totalRecords / pageSize);
-
-        //        var skip = (page - 1) * pageSize; 
-
-        //        return db.houseHolds.Skip((page - 1) * pageSize).Take(pageSize);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw;
-        //    }
-
-
-        //}
-
-        ////used by LINQ
-        //public static IEnumerable<TSource> Page<TSource>(this IEnumerable<TSource> source, int page, int pageSize)
-        //{
-        //    return source.Skip((page - 1) * pageSize).Take(pageSize);
-        //}
-
 
     }
 }

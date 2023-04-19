@@ -17,7 +17,7 @@ namespace csi.asp.net.core.model.helper
         public Uri NextPage { get; set; }
         public Uri PreviousPage { get; set; }
 
-        public PagedResponse(T data, int pageNumber, int pageSize, int TotalRecords)
+        public PagedResponse(List<T> data, int pageNumber, int pageSize, int TotalRecords)
         {
             this.PageNumber = pageNumber;
             this.PageSize = pageSize;

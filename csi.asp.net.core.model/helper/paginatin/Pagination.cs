@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,7 @@ namespace csi.asp.net.core.model.helper.paginatin
 
         public int PageIndex { get; private set; }
         public int TotalPages { get; set; }
-
-
+         
         public Pagination(List<T> items, int count, int pageIndex, int pageSize)
         {
             PageIndex = pageIndex;
@@ -28,7 +28,7 @@ namespace csi.asp.net.core.model.helper.paginatin
         {
             var count = source.Count();
             var items = source.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-
+             
             return new Pagination<T>(items, count, pageIndex, pageSize);
         }
     }

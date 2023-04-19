@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csi.asp.net.core.model.helper.paginatin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace csi.asp.net.core.service.Interface
         public Task<T> Update(T entity);
         public Task Delete(int id); 
         public Task<T> Read(int id); 
-        public Task<List<T>> Read();
+        public  PaginationResponse<T>  Pagination(int PageNumber);
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using csi.asp.net.core.data.App.Context;
+using csi.asp.net.core.model.helper.paginatin;
 using csi.asp.net.core.model.model;
 using csi.asp.net.core.service.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -81,12 +82,14 @@ namespace csi.asp.net.core.service.service
             }
         }
 
-        public async Task<List<Partner>> Read()
+        public PaginationResponse<Partner> Pagination(int PageNumber = 1)
         {
             try
             {
                 using var db = new CSI_AppContext();
-                return await db.partners.ToListAsync();
+                var Pagination = Pagination<Partner>.Create(db.partners.AsQueryable(), PageNumber, 10);
+                var result = new PaginationResponse<Partner>(Pagination);
+                return result;
             }
             catch (Exception ex)
             {

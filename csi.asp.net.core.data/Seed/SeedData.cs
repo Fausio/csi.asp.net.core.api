@@ -164,13 +164,14 @@ namespace csi.asp.net.core.data.Seed
             if (db.houseHolds.Count() == 0)
             {
                 var data = HouseholdToSeed();
-                var now = DateTime.Now;
+               
                 data.ForEach(x =>
                 {
                     int rondomPartner = new Random().Next(6, 8); // normal parner id range  
                     int rondomFamilyHead = new Random().Next(1, 7);
                     int rondomFamilyOriginRef = new Random().Next(1, 7);
 
+                    var now = DateTime.Now;
                     now.AddYears(rondomPartner);
                     now.AddMonths(rondomFamilyHead);
                     now.AddDays(rondomFamilyOriginRef);

@@ -113,15 +113,14 @@ namespace csi.asp.net.core.service.service
                 else
                 {
                     using var db = new CSI_AppContext();
-                    var query = db.houseHolds.Where(x => x.Name.Contains(SearchTxt) || x.Address.Contains(SearchTxt)).AsQueryable(); 
+                    var query = db.houseHolds.Where(x => x.Name.Contains(SearchTxt) || x.Address.Contains(SearchTxt) || x.Id.ToString().Contains(SearchTxt)).AsQueryable(); 
 
                     if (query.Count() <=0 )
                     {
                         return null;
                     }
                     else
-                    {
-
+                    { 
                         var Pagination = Pagination<Household>.Create(query, 1, 20);
                         var result = new PaginationResponse<Household>(Pagination);
                         return result;

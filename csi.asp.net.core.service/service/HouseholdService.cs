@@ -3,6 +3,7 @@ using csi.asp.net.core.model.helper.paginatin;
 using csi.asp.net.core.model.model;
 using csi.asp.net.core.service.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,11 +88,46 @@ namespace csi.asp.net.core.service.service
         public PaginationResponse<Household> Pagination(int PageNumber = 1)
         {
             try
-            { 
+            {
+
                 using var db = new CSI_AppContext();
                 var Pagination = Pagination<Household>.Create(db.houseHolds.AsQueryable(), PageNumber, 10);
-                var result = new PaginationResponse<Household>(Pagination);  
+                var result = new PaginationResponse<Household>(Pagination);
                 return result;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
+        public PaginationResponse<Household> Search(string? SearchTxt)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(SearchTxt))
+                {
+                    return Pagination();
+                }
+                else
+                {
+                    using var db = new CSI_AppContext();
+                    var query = db.houseHolds.Where(x => x.Name.Contains(SearchTxt) || x.Address.Contains(SearchTxt)).AsQueryable(); 
+
+                    if (query.Count() <=0 )
+                    {
+                        return null;
+                    }
+                    else
+                    {
+
+                        var Pagination = Pagination<Household>.Create(query, 1, 20);
+                        var result = new PaginationResponse<Household>(Pagination);
+                        return result;
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -121,6 +157,7 @@ namespace csi.asp.net.core.service.service
                 throw;
             }
         }
+
 
     }
 }

@@ -14,6 +14,7 @@ namespace csi.asp.net.core.service.Interface
         public Task Delete(int id); 
         public Task<T> Read(int id); 
         public  PaginationResponse<T>  Pagination(int PageNumber);
+       public  PaginationResponse<T> Search(string? Search);
 
     }
 }

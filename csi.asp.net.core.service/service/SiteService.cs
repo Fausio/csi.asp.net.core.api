@@ -119,5 +119,10 @@ namespace csi.asp.net.core.service.service
                 throw;
             }
         }
+
+        public PaginationResponse<Site> Search(string? Search)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

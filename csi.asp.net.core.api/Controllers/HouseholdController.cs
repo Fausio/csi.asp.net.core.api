@@ -56,8 +56,22 @@ namespace csi.asp.net.core.api.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("search")]
 
+        public async Task<IActionResult> Search([FromQuery] string? search )
+        {
+            try
+            { 
+                return Ok(_householdInterface.Search(search));
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Read([FromQuery] int PageNumber = 1)
         {
             try

@@ -14,7 +14,9 @@ namespace csi.asp.net.core.model.helper.paginatin
         public List<int> EachTotalPages { get; set; }
         public bool PreviousPage { get; set; }
         public bool NextPage { get; set; }
+        public string[] ActiveOrCurrentPage { get; set; }
         public List<T> result { get; set; }
+        
 
         public PaginationResponse(Pagination<T> data)
         {
@@ -22,11 +24,16 @@ namespace csi.asp.net.core.model.helper.paginatin
             this.PageIndex = data.PageIndex;
             this.TotalPages = data.TotalPages;
             this.EachTotalPages = data.EachTotalPages;
-
+            this.ActiveOrCurrentPage = data.ActiveOrCurrentPage;
             this.PreviousPage = data.PreviousPage;
             this.NextPage = data.NextPage;
 
             this.result = data;
+        }
+
+        public PaginationResponse()
+        {
+            
         }
 
 

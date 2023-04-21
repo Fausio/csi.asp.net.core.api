@@ -13,17 +13,30 @@ namespace csi.asp.net.core.model.model
     [Table("Household")]
     public class Household : Common
     {
+
+        public DateTime RegistrationDate { get; set; }
+
         [Column(TypeName = "varchar(50)")]
         [Display(Name = "Nome do agregado")]
         public string Name { get; set; }
 
-        [Column(TypeName = "varchar(200)")]
+        [Column(TypeName = "varchar(50)")]
         [Display(Name = "Endereço")]
         public string Address { get; set; }
+
+        [Column(TypeName = "varchar(20)")]
         public string? OtherFamilyOriginRef { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
         public string NeighborhoodName { get; set; }
+
+        [Column(TypeName = "varchar(5)")]
         public string Block { get; set; }
+
+        [Column(TypeName = "varchar(9)")]
         public string FamilyPhoneNumber { get; set; }
+
+        [Column(TypeName = "varchar(20)")]
         public string ClosePlaceToHome { get; set; }
 
         #region navegations
@@ -32,11 +45,11 @@ namespace csi.asp.net.core.model.model
         [ForeignKey("Partner")]
         public int PartnerId { get; set; }
         //todo orgunit, see on polistation project on my git   
-        public FamilyHead FamilyHead { get; set; }
+        public virtual FamilyHead FamilyHead { get; set; }
         [ForeignKey("FamilyHead")]
         public int FamilyHeadId { get; set; }
 
-        public FamilyOriginRef FamilyOriginRef { get; set; }
+        public virtual FamilyOriginRef FamilyOriginRef { get; set; }
         [ForeignKey("FamilyOriginRefId")]
         public int FamilyOriginRefId { get; set; }
         #endregion

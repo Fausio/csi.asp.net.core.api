@@ -48,6 +48,58 @@ namespace csi.asp.net.core.data.Migrations
                     b.ToTable("CollaboratorRole");
                 });
 
+            modelBuilder.Entity("csi.asp.net.core.model.model.FamilyHead", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FamilyHead");
+                });
+
+            modelBuilder.Entity("csi.asp.net.core.model.model.FamilyOriginRef", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FamilyOriginRef");
+                });
+
             modelBuilder.Entity("csi.asp.net.core.model.model.Household", b =>
                 {
                     b.Property<int>("Id")
@@ -58,10 +110,28 @@ namespace csi.asp.net.core.data.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Block")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<string>("ClosePlaceToHome")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("FamilyHeadId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FamilyOriginRefId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FamilyPhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("varchar(9)");
 
                     b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
@@ -70,13 +140,27 @@ namespace csi.asp.net.core.data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
+                    b.Property<string>("NeighborhoodName")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("OtherFamilyOriginRef")
+                        .HasColumnType("varchar(20)");
+
                     b.Property<int>("PartnerId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("RegistrationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FamilyHeadId");
+
+                    b.HasIndex("FamilyOriginRefId");
 
                     b.HasIndex("PartnerId");
 
@@ -152,11 +236,27 @@ namespace csi.asp.net.core.data.Migrations
 
             modelBuilder.Entity("csi.asp.net.core.model.model.Household", b =>
                 {
+                    b.HasOne("csi.asp.net.core.model.model.FamilyHead", "FamilyHead")
+                        .WithMany()
+                        .HasForeignKey("FamilyHeadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("csi.asp.net.core.model.model.FamilyOriginRef", "FamilyOriginRef")
+                        .WithMany()
+                        .HasForeignKey("FamilyOriginRefId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("csi.asp.net.core.model.model.Partner", "Partner")
                         .WithMany()
                         .HasForeignKey("PartnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("FamilyHead");
+
+                    b.Navigation("FamilyOriginRef");
 
                     b.Navigation("Partner");
                 });

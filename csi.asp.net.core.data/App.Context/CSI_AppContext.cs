@@ -16,6 +16,10 @@ namespace csi.asp.net.core.data.App.Context
         public DbSet<Partner>  partners { get; set; }
         public DbSet<Household>  houseHolds { get; set; }
 
+        public DbSet<FamilyHead>  familyHeads { get; set; }
+
+        public DbSet<FamilyOriginRef>  familyOriginRefs { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

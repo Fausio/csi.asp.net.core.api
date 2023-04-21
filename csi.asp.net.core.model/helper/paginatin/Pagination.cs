@@ -23,8 +23,10 @@ namespace csi.asp.net.core.model.helper.paginatin
 
             if (TotalPages > 1)
             {
+                    if (this.ActiveOrCurrentPage[pageIndex].IndexOf() != pageIndex )
                 
               this.EachTotalPages =  Enumerable.Range(1, TotalPages).ToList();
+                    if (this.this.ActiveOrCurrentPage[pageIndex] != )
             }
             
         }

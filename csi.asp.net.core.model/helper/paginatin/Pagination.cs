@@ -12,12 +12,21 @@ namespace csi.asp.net.core.model.helper.paginatin
 
         public int PageIndex { get; private set; }
         public int TotalPages { get; set; }
-         
+        public List<int> EachTotalPages { get; set; }
+
+
         public Pagination(List<T> items, int count, int pageIndex, int pageSize)
         {
             PageIndex = pageIndex;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
             this.AddRange(items);
+
+            if (TotalPages > 1)
+            {
+                
+              this.EachTotalPages =  Enumerable.Range(1, TotalPages).ToList();
+            }
+            
         }
 
         public bool PreviousPage { get { return (PageIndex > 1); } }
@@ -31,5 +40,7 @@ namespace csi.asp.net.core.model.helper.paginatin
              
             return new Pagination<T>(items, count, pageIndex, pageSize);
         }
+
+      
     }
 }

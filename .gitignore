@@ -115,3 +115,7 @@
 /csi.asp.net.core.data/obj/csi.asp.net.core.data.csproj.nuget.dgspec.json
 /csi.asp.net.core.model/obj/project.assets.json
 /csi.asp.net.core.model/obj/csi.asp.net.core.model.csproj.nuget.dgspec.json
+/csi.asp.net.core.api/obj
+/csi.asp.net.core.data/obj/csi.asp.net.core.data.csproj.nuget.g.props
+/csi.asp.net.core.model/obj/csi.asp.net.core.model.csproj.nuget.g.props
+/csi.asp.net.core.service/bin/Debug/net6.0

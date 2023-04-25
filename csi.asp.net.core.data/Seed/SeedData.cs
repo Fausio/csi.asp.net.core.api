@@ -29,7 +29,7 @@ namespace csi.asp.net.core.data.Seed
             data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 6", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
             data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 7", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
             data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 8", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
-             
+
             return data;
 
         }
@@ -184,11 +184,34 @@ namespace csi.asp.net.core.data.Seed
                 db.houseHolds.AddRange(data);
                 await db.SaveChangesAsync();
             }
+
+
+            if (db.Beneficiarys.Count() == 0)
+            {
+                var totalHouseHold = db.houseHolds.ToList();
+                var listOfBen = new List<Beneficiary>();
+
+                foreach (var item in totalHouseHold)
+                {
+                    // create 10 foreach
+
+                    for (int i = 0; i < 10; i++)
+                    {
+                        var ben = new Beneficiary()
+                        {
+                            Name = $"beneficiario de {item.Name}",
+                            Gender = "M",
+                            HouseholdId = item.Id
+                        };
+
+                        listOfBen.Add(ben);
+                    }
+                }
+
+                db.Beneficiarys.AddRange(listOfBen);
+                await db.SaveChangesAsync();
+            }
         }
-
-
-
     }
-
 
 }

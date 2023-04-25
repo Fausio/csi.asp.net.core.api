@@ -1,4 +1,5 @@
-﻿using csi.asp.net.core.model.model;
+﻿using csi.asp.net.core.model.helper.paginatin;
+using csi.asp.net.core.model.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace csi.asp.net.core.service.Interface
 {
     public interface IBeneficiaryInterface : ICommon<Beneficiary>
     {
-
+        public Task<PaginationResponse<Beneficiary>> GetByHouseholdId(int householdId);
     }
 }

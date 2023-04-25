@@ -55,6 +55,20 @@ namespace csi.asp.net.core.api.Controllers
                 return Ok(_beneficiaryInterface.Search(search));
             }
             catch (Exception e)
+            { 
+                throw;
+            }
+        } 
+        
+        [HttpGet("getByHouseholdId")]
+
+        public async Task<IActionResult> GetByHouseholdId( int householdID)
+        {
+            try
+            { 
+                return Ok(await _beneficiaryInterface.GetByHouseholdId(householdID));
+            }
+            catch (Exception e)
             {
 
                 throw;

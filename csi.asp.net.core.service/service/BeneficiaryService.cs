@@ -30,7 +30,7 @@ namespace csi.asp.net.core.service.service
                 }
                 else
                 {
-                    throw new Exception("Agregado ja existe na base de dados");
+                    throw new Exception("beneficiario ja existe na base de dados");
                 }
 
             }
@@ -55,7 +55,7 @@ namespace csi.asp.net.core.service.service
                 }
                 else
                 {
-                    throw new Exception("Agregado não existe na base de dados");
+                    throw new Exception("beneficiario não existe na base de dados");
                 }
             }
             catch (Exception ex)
@@ -63,6 +63,8 @@ namespace csi.asp.net.core.service.service
                 throw;
             }
         }
+
+    
 
         public PaginationResponse<Beneficiary> Pagination(int PageNumber = 1)
         {
@@ -124,9 +126,25 @@ namespace csi.asp.net.core.service.service
                         var Pagination = Pagination<Beneficiary>.Create(query, 1, 20);
                         var result = new PaginationResponse<Beneficiary>(Pagination);
                         return result;
-                    }
-
+                    } 
                 }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<PaginationResponse<Beneficiary>> GetByHouseholdId(int householdId)
+        {
+            try
+            {
+                using var db = new CSI_AppContext();
+                var query = db.Beneficiarys.Where(b => b.HouseholdId == householdId).OrderBy(b => b.Name).AsQueryable();
+
+                var Pagination = Pagination<Beneficiary>.Create(query, 1, 20);
+                var result = new PaginationResponse<Beneficiary>(Pagination);
+                return result;
             }
             catch (Exception ex)
             {
@@ -150,7 +168,7 @@ namespace csi.asp.net.core.service.service
                 }
                 else
                 {
-                    throw new Exception("Agregado não existe na base de dados");
+                    throw new Exception("beneficiario não existe na base de dados");
                 }
             }
             catch (Exception ex)

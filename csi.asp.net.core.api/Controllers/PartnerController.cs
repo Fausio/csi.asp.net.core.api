@@ -22,7 +22,7 @@ namespace csi.asp.net.core.api.Controllers
 
 
         [HttpPost]
-        public async Task<Beneficiary> Create(Beneficiary model)
+        public async Task<Partner> Create(Partner model)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace csi.asp.net.core.api.Controllers
         }
 
         [HttpPut]
-        public async Task<Beneficiary> Update(Beneficiary model)
+        public async Task<Partner> Update(Partner model)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace csi.asp.net.core.api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Beneficiary> ReadById(int id)
+        public async Task<Partner> ReadById(int id)
         {
             try
             {

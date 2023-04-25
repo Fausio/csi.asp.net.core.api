@@ -15,24 +15,21 @@ namespace csi.asp.net.core.data.Seed
         private static List<Site> SiteToSeed = new List<Site> { new Site() { Guid = Guid.NewGuid(), CreatedDate = DateTime.Now, Name = "OCB Principal" } };
 
 
-        private static List<Beneficiary> PartnerToSeed()
+        private static List<Partner> PartnerToSeed()
         {
-            List<Beneficiary> data = new List<Beneficiary>();
+            List<Partner> data = new List<Partner>();
 
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 1", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 2", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 1", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 2", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
 
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 3", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 4", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 5", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 3", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 4", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 5", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
 
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 6", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 7", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
-            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 8", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
-
-
-
-
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 6", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 7", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
+            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "Partner 8", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
+             
             return data;
 
         }
@@ -144,14 +141,14 @@ namespace csi.asp.net.core.data.Seed
                 data.ForEach(x =>
                 {
 
-                    if (new List<string>() { "partner 3", "partner 4", "partner 5" }.Contains(x.Name))
+                    if (new List<string>() { "Partner 3", "Partner 4", "Partner 5" }.Contains(x.Name))
                     {
-                        x.Superior = data.Where(p => p.Name == "partner 1").FirstOrDefault();
+                        x.Superior = data.Where(p => p.Name == "Partner 1").FirstOrDefault();
                     }
 
-                    if (new List<string>() { "partner 6", "partner 7", "partner 8" }.Contains(x.Name))
+                    if (new List<string>() { "Partner 6", "Partner 7", "Partner 8" }.Contains(x.Name))
                     {
-                        x.Superior = data.Where(p => p.Name == "partner 5").FirstOrDefault();
+                        x.Superior = data.Where(p => p.Name == "Partner 5").FirstOrDefault();
                     }
                 });
 
@@ -164,7 +161,7 @@ namespace csi.asp.net.core.data.Seed
             if (db.houseHolds.Count() == 0)
             {
                 var data = HouseholdToSeed();
-               
+
                 data.ForEach(x =>
                 {
                     int rondomPartner = new Random().Next(6, 8); // normal parner id range  
@@ -189,7 +186,7 @@ namespace csi.asp.net.core.data.Seed
             }
         }
 
-         
+
 
     }
 

@@ -13,7 +13,7 @@ namespace csi.asp.net.core.service.service
 {
     public class PartnerService :IPartnerInterface
     {
-        public async Task<Beneficiary> Create(Beneficiary entity)
+        public async Task<Partner> Create(Partner entity)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace csi.asp.net.core.service.service
             }
         }
 
-        public async Task<Beneficiary> Read(int id)
+        public async Task<Partner> Read(int id)
         {
             try
             {
@@ -82,13 +82,13 @@ namespace csi.asp.net.core.service.service
             }
         }
 
-        public PaginationResponse<Beneficiary> Pagination(int PageNumber = 1)
+        public PaginationResponse<Partner> Pagination(int PageNumber = 1)
         {
             try
             {
                 using var db = new CSI_AppContext();
-                var Pagination = Pagination<Beneficiary>.Create(db.partners.AsQueryable(), PageNumber, 10);
-                var result = new PaginationResponse<Beneficiary>(Pagination);
+                var Pagination = Pagination<Partner>.Create(db.partners.AsQueryable(), PageNumber, 10);
+                var result = new PaginationResponse<Partner>(Pagination);
                 return result;
             }
             catch (Exception ex)
@@ -97,7 +97,7 @@ namespace csi.asp.net.core.service.service
             }
         }
 
-        public async Task<Beneficiary> Update(Beneficiary entity)
+        public async Task<Partner> Update(Partner entity)
         {
             try
             {
@@ -120,7 +120,7 @@ namespace csi.asp.net.core.service.service
             }
         }
 
-        public PaginationResponse<Beneficiary> Search(string? Search)
+        public PaginationResponse<Partner> Search(string? Search)
         {
             throw new NotImplementedException();
         }

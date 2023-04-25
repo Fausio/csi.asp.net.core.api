@@ -13,7 +13,7 @@ namespace csi.asp.net.core.data.App.Context
 
         public DbSet<Site> sites { get; set; }
         public DbSet<CollaboratorRole>  collaboratorRoles { get; set; }
-        public DbSet<Beneficiary>  partners { get; set; }
+        public DbSet<Partner>  partners { get; set; }
         public DbSet<Household>  houseHolds { get; set; }
      public DbSet<Beneficiary> Beneficiarys { get; set; }
 

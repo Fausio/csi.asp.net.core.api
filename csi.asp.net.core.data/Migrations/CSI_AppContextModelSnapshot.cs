@@ -126,7 +126,7 @@ namespace csi.asp.net.core.data.Migrations
                     b.Property<int>("FamilyHeadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FamilyOriginRefId")
+                    b.Property<int?>("FamilyOriginRefId")
                         .HasColumnType("int");
 
                     b.Property<string>("FamilyPhoneNumber")
@@ -244,9 +244,7 @@ namespace csi.asp.net.core.data.Migrations
 
                     b.HasOne("csi.asp.net.core.model.model.FamilyOriginRef", "FamilyOriginRef")
                         .WithMany()
-                        .HasForeignKey("FamilyOriginRefId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FamilyOriginRefId");
 
                     b.HasOne("csi.asp.net.core.model.model.Partner", "Partner")
                         .WithMany()

@@ -12,7 +12,7 @@ using csi.asp.net.core.data.App.Context;
 namespace csi.asp.net.core.data.Migrations
 {
     [DbContext(typeof(CSI_AppContext))]
-    [Migration("20230421161131_v1")]
+    [Migration("20230424103327_v1")]
     partial class v1
     {
         /// <inheritdoc />
@@ -129,7 +129,7 @@ namespace csi.asp.net.core.data.Migrations
                     b.Property<int>("FamilyHeadId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FamilyOriginRefId")
+                    b.Property<int?>("FamilyOriginRefId")
                         .HasColumnType("int");
 
                     b.Property<string>("FamilyPhoneNumber")
@@ -247,9 +247,7 @@ namespace csi.asp.net.core.data.Migrations
 
                     b.HasOne("csi.asp.net.core.model.model.FamilyOriginRef", "FamilyOriginRef")
                         .WithMany()
-                        .HasForeignKey("FamilyOriginRefId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FamilyOriginRefId");
 
                     b.HasOne("csi.asp.net.core.model.model.Partner", "Partner")
                         .WithMany()

@@ -127,7 +127,7 @@ namespace csi.asp.net.core.data.Migrations
                     ClosePlaceToHome = table.Column<string>(type: "varchar(20)", nullable: false),
                     PartnerId = table.Column<int>(type: "int", nullable: false),
                     FamilyHeadId = table.Column<int>(type: "int", nullable: false),
-                    FamilyOriginRefId = table.Column<int>(type: "int", nullable: false),
+                    FamilyOriginRefId = table.Column<int>(type: "int", nullable: true),
                     Guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -145,8 +145,7 @@ namespace csi.asp.net.core.data.Migrations
                         name: "FK_Household_FamilyOriginRef_FamilyOriginRefId",
                         column: x => x.FamilyOriginRefId,
                         principalTable: "FamilyOriginRef",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Household_Partner_PartnerId",
                         column: x => x.PartnerId,

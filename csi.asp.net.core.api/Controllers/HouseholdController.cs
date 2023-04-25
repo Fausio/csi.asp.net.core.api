@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using csi.asp.net.core.model.helper;
 using csi.asp.net.core.model.helper.paginatin;
 using csi.asp.net.core.model.model;
@@ -18,12 +18,12 @@ namespace csi.asp.net.core.api.Controllers
     public class HouseholdController : ControllerBase
     {
         private readonly IHouseholdInterface _householdInterface;
-       
+
 
         public HouseholdController(IHouseholdInterface householdInterface)
         {
             _householdInterface = householdInterface;
-           
+
         }
 
         [HttpPost]
@@ -58,10 +58,10 @@ namespace csi.asp.net.core.api.Controllers
 
         [HttpGet("search")]
 
-        public async Task<IActionResult> Search([FromQuery] string? search )
+        public async Task<IActionResult> Search([FromQuery] string? search)
         {
             try
-            { 
+            {
                 return Ok(_householdInterface.Search(search));
             }
             catch (Exception e)
@@ -75,7 +75,7 @@ namespace csi.asp.net.core.api.Controllers
         public async Task<IActionResult> Read([FromQuery] int PageNumber = 1)
         {
             try
-            { 
+            {
                 return Ok(_householdInterface.Pagination(PageNumber));
             }
             catch (Exception e)
@@ -112,5 +112,47 @@ namespace csi.asp.net.core.api.Controllers
                 throw;
             }
         }
+
+
+        [HttpGet("ReadFamilyHead")]
+        public async Task<IActionResult> ReadFamilyHead()
+        {
+            try
+            {
+                return Ok(await _householdInterface.ReadFamilyHead());
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        [HttpGet("ReadFamilyOriginRef")]
+        public async Task<IActionResult> ReadFamilyOriginRef()
+        {
+            try
+            {
+                return Ok(await _householdInterface.ReadFamilyOriginRef());
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        [HttpGet("ReadPartners")]
+        public async Task<IActionResult> ReadPartners()
+        {
+            try
+            {
+                return Ok(await _householdInterface.ReadPartners());
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
     }
 }

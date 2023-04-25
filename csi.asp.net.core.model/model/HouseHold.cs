@@ -45,13 +45,13 @@ namespace csi.asp.net.core.model.model
         [ForeignKey("Partner")]
         public int PartnerId { get; set; }
         //todo orgunit, see on polistation project on my git   
-        public virtual FamilyHead FamilyHead { get; set; }
+        public virtual FamilyHead? FamilyHead { get; set; }
         [ForeignKey("FamilyHead")]
         public int FamilyHeadId { get; set; }
 
-        public virtual FamilyOriginRef FamilyOriginRef { get; set; }
+        public virtual FamilyOriginRef? FamilyOriginRef { get; set; }
         [ForeignKey("FamilyOriginRefId")]
-        public int FamilyOriginRefId { get; set; }
+        public int? FamilyOriginRefId { get; set; }
         #endregion
     }
 }

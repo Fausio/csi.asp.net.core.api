@@ -1,4 +1,5 @@
 ﻿using csi.asp.net.core.data.App.Context;
+using csi.asp.net.core.model.dto_s;
 using csi.asp.net.core.model.helper.paginatin;
 using csi.asp.net.core.model.model;
 using csi.asp.net.core.service.Interface;
@@ -21,13 +22,17 @@ namespace csi.asp.net.core.service.service
                 using var db = new CSI_AppContext();
                 if (entity.Id == 0)
                 {
+
+                    entity.CreatedDate = DateTime.Now;
+                    entity.Guid = Guid.NewGuid();
+
                     await db.houseHolds.AddAsync(entity);
                     await db.SaveChangesAsync();
                     return entity;
                 }
                 else
                 {
-                    throw new Exception("Hagregado ja existe na base de dados");
+                    throw new Exception("Agregado ja existe na base de dados");
                 }
 
             }
@@ -52,7 +57,7 @@ namespace csi.asp.net.core.service.service
                 }
                 else
                 {
-                    throw new Exception("Hagregado não existe na base de dados");
+                    throw new Exception("Agregado não existe na base de dados");
                 }
             }
             catch (Exception ex)
@@ -76,7 +81,7 @@ namespace csi.asp.net.core.service.service
                 }
                 else
                 {
-                    throw new Exception("Hagregado não existe na base de dados");
+                    throw new Exception("Agregado não existe na base de dados");
                 }
             }
             catch (Exception ex)
@@ -113,14 +118,14 @@ namespace csi.asp.net.core.service.service
                 else
                 {
                     using var db = new CSI_AppContext();
-                    var query = db.houseHolds.Where(x => x.Name.Contains(SearchTxt) || x.Address.Contains(SearchTxt) || x.Id.ToString().Contains(SearchTxt)).AsQueryable(); 
+                    var query = db.houseHolds.Where(x => x.Name.Contains(SearchTxt) || x.Address.Contains(SearchTxt) || x.Id.ToString().Contains(SearchTxt)).AsQueryable();
 
-                    if (query.Count() <=0 )
+                    if (query.Count() <= 0)
                     {
                         return null;
                     }
                     else
-                    { 
+                    {
                         var Pagination = Pagination<Household>.Create(query, 1, 20);
                         var result = new PaginationResponse<Household>(Pagination);
                         return result;
@@ -148,7 +153,7 @@ namespace csi.asp.net.core.service.service
                 }
                 else
                 {
-                    throw new Exception("Hagregado não existe na base de dados");
+                    throw new Exception("Agregado não existe na base de dados");
                 }
             }
             catch (Exception ex)
@@ -157,6 +162,66 @@ namespace csi.asp.net.core.service.service
             }
         }
 
+        public async Task<List<DropDown>> ReadFamilyHead()
+        {
+            try
+            {
+                using var db = new CSI_AppContext();
 
+                return await db.familyHeads.Select(x => new DropDown()
+                {
+                    Id = x.Id,
+                    Description = x.Description
+
+                }).OrderBy(x => x.Description)
+                .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<DropDown>> ReadFamilyOriginRef()
+        {
+            try
+            {
+                using var db = new CSI_AppContext();
+
+                return await db.familyOriginRefs.Select(x => new DropDown()
+                {
+                    Id = x.Id,
+                    Description = x.Description
+
+                }).OrderBy(x => x.Description)
+                .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
+
+        public async Task<List<DropDown>> ReadPartners()
+        {
+            try
+            {
+                using var db = new CSI_AppContext();
+
+                return await db.partners.Where(p=> p.CollaboratorRoleId ==3).Select(x => new DropDown()
+                {
+                    Id = x.Id,
+                    Description = x.Name
+
+                }).OrderBy(x => x.Description)
+                .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

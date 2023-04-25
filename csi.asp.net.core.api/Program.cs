@@ -33,6 +33,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<ISiteInterface, SiteService>();
 builder.Services.AddSingleton<IPartnerInterface, PartnerService>();
 builder.Services.AddSingleton<IHouseholdInterface, HouseholdService>();
+builder.Services.AddSingleton<IBeneficiaryInterface, BeneficiaryService>();
  
 
 

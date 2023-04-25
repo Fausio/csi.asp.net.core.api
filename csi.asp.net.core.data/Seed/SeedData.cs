@@ -15,20 +15,20 @@ namespace csi.asp.net.core.data.Seed
         private static List<Site> SiteToSeed = new List<Site> { new Site() { Guid = Guid.NewGuid(), CreatedDate = DateTime.Now, Name = "OCB Principal" } };
 
 
-        private static List<Partner> PartnerToSeed()
+        private static List<Beneficiary> PartnerToSeed()
         {
-            List<Partner> data = new List<Partner>();
+            List<Beneficiary> data = new List<Beneficiary>();
 
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 1", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 2", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 1", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 2", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 1 });
 
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 3", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 4", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 5", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 3", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 4", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 5", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 2 });
 
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 6", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 7", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
-            data.Add(new Partner() { Guid = Guid.NewGuid(), Name = "partner 8", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 6", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 7", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
+            data.Add(new Beneficiary() { Guid = Guid.NewGuid(), Name = "partner 8", CreatedDate = DateTime.Now, Site = SiteToSeed.FirstOrDefault(), CollaboratorRoleId = 3 });
 
 
 

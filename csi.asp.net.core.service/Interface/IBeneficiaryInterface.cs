@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace csi.asp.net.core.service.Interface
 {
-    public interface IPartnerInterface : ICommon<Beneficiary>
+    public interface IBeneficiaryInterface : ICommon<Beneficiary>
     {
+
     }
 }

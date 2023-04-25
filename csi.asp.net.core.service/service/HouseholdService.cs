@@ -147,6 +147,8 @@ namespace csi.asp.net.core.service.service
 
                 if (entity.Id >= 0)
                 {
+                    entity.UpdatedDate = DateTime.Now;
+
                     db.houseHolds.Update(entity);
                     await db.SaveChangesAsync();
                     return entity;

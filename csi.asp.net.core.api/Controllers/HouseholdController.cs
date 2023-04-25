@@ -36,7 +36,6 @@ namespace csi.asp.net.core.api.Controllers
             }
             catch (Exception e)
             {
-
                 throw;
             }
         }

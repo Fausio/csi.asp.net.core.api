@@ -40,7 +40,7 @@ namespace csi.asp.net.core.model.model
         public string ClosePlaceToHome { get; set; }
 
         #region navegations
-        public virtual Partner? Partner { get; set; }
+        public virtual Beneficiary? Partner { get; set; }
 
         [ForeignKey("Partner")]
         public int PartnerId { get; set; }
@@ -52,6 +52,9 @@ namespace csi.asp.net.core.model.model
         public virtual FamilyOriginRef? FamilyOriginRef { get; set; }
         [ForeignKey("FamilyOriginRefId")]
         public int? FamilyOriginRefId { get; set; }
+
+        public virtual List<Beneficiary>? Beneficiaries { get; set; }
+
         #endregion
     }
 }

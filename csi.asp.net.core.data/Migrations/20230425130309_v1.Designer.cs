@@ -12,7 +12,7 @@ using csi.asp.net.core.data.App.Context;
 namespace csi.asp.net.core.data.Migrations
 {
     [DbContext(typeof(CSI_AppContext))]
-    [Migration("20230424103327_v1")]
+    [Migration("20230425130309_v1")]
     partial class v1
     {
         /// <inheritdoc />
@@ -24,6 +24,44 @@ namespace csi.asp.net.core.data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("csi.asp.net.core.model.model.Beneficiary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Guid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("HouseholdId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HouseholdId");
+
+                    b.ToTable("Beneficiary");
+                });
 
             modelBuilder.Entity("csi.asp.net.core.model.model.CollaboratorRole", b =>
                 {
@@ -237,6 +275,17 @@ namespace csi.asp.net.core.data.Migrations
                     b.ToTable("Site");
                 });
 
+            modelBuilder.Entity("csi.asp.net.core.model.model.Beneficiary", b =>
+                {
+                    b.HasOne("csi.asp.net.core.model.model.Household", "Household")
+                        .WithMany("Beneficiaries")
+                        .HasForeignKey("HouseholdId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Household");
+                });
+
             modelBuilder.Entity("csi.asp.net.core.model.model.Household", b =>
                 {
                     b.HasOne("csi.asp.net.core.model.model.FamilyHead", "FamilyHead")
@@ -285,6 +334,11 @@ namespace csi.asp.net.core.data.Migrations
                     b.Navigation("Site");
 
                     b.Navigation("Superior");
+                });
+
+            modelBuilder.Entity("csi.asp.net.core.model.model.Household", b =>
+                {
+                    b.Navigation("Beneficiaries");
                 });
 #pragma warning restore 612, 618
         }

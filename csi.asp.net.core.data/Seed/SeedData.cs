@@ -195,7 +195,7 @@ namespace csi.asp.net.core.data.Seed
                 {
                     // create 10 foreach
 
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 24; i++)
                     {
                         var ben = new Beneficiary()
                         {
